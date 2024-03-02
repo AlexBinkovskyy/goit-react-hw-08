@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { registerNewUser } from './operations';
 
 const authorizationSlice = createSlice({
   name: 'auth',
@@ -11,9 +12,11 @@ const authorizationSlice = createSlice({
     isLoggedIn: false,
     isRefreshing: false,
   },
-  extraReducers: (builder) => {
-    builder.addCase()
-  }
+  extraReducers: builder => {
+    builder.addCase(registerNewUser.pending, (state, {payload}) => {
+      console.log(state, payload);
+    });
+  },
 });
 
-export const authReducer = authorizationSlice.reducer
+export const authReducer = authorizationSlice.reducer;
