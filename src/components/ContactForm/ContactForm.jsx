@@ -33,36 +33,43 @@ export function ContactForm() {
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-      validationSchema={userSchema}
-      validateOnBlur={false}
-    >
-      <Form className={CSS.form}>
-        <label htmlFor={nameID}>Name</label>
-        <Field className={CSS.input} type="text" name="name" id={nameID} />
-        <ErrorMessage className={CSS.errorName} name="name" component="span" />
-        <label htmlFor={numberID}>Number</label>
-        <Field type="text" name="number" id={numberID}>
-          {({ field }) => (
-            <InputMask
-              {...field}
-              mask="999-999-9999"
-              maskChar=""
-              className={CSS.inputSecond}
-            />
-          )}
-        </Field>
-        <ErrorMessage
-          className={CSS.errorNumber}
-          name="number"
-          component="span"
-        />
-        <button className={CSS.btn} type="submit">
-          Add contact
-        </button>
-      </Form>
-    </Formik>
+    <>
+      <h1 className="header">Phonebook</h1>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+        validationSchema={userSchema}
+        validateOnBlur={false}
+      >
+        <Form className={CSS.form}>
+          <label htmlFor={nameID}>Name</label>
+          <Field className={CSS.input} type="text" name="name" id={nameID} />
+          <ErrorMessage
+            className={CSS.errorName}
+            name="name"
+            component="span"
+          />
+          <label htmlFor={numberID}>Number</label>
+          <Field type="text" name="number" id={numberID}>
+            {({ field }) => (
+              <InputMask
+                {...field}
+                mask="999-999-9999"
+                maskChar=""
+                className={CSS.inputSecond}
+              />
+            )}
+          </Field>
+          <ErrorMessage
+            className={CSS.errorNumber}
+            name="number"
+            component="span"
+          />
+          <button className={CSS.btn} type="submit">
+            Add contact
+          </button>
+        </Form>
+      </Formik>
+    </>
   );
 }

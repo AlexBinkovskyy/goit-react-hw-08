@@ -56,3 +56,15 @@ export const registerNewUser = createAsyncThunk(
     }
   }
 );
+
+export const loginUser = createAsyncThunk(
+  'auth/register',
+  async (user, thunkAPI) => {
+    try {
+      const response = await axios.post('/users/login', user);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
