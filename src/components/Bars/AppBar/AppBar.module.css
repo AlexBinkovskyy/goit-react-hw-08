@@ -1,23 +1,9 @@
-.navWrapper{
-display: flex;
-margin-bottom: 20px;
-}
-
-.entrance{
-
-}
-
-.linkHome{
-margin-right: auto;
-}
-
-.linkReg {
-margin-right: 15px;
-}
-.linkLog {
-
-}
-
-.entrance{
-
+.header {
+  margin-bottom: 35px;
+  /* padding: 5px 0 0 0; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0px;
 }

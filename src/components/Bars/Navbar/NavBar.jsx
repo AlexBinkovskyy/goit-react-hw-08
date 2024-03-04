@@ -6,12 +6,12 @@ export const NavBar = () => {
     const { isLoggedIn } = useAuth();
   
     return (
-      <nav>
-        <NavLink className={css.link} to="/">
+      <nav className={css.wrapper}>
+        <NavLink className={css.linkHome} to="/">
           Home
         </NavLink>
         {isLoggedIn && (
-          <NavLink className={css.link} to="/contacts">
+          <NavLink className={css.linkContacts} to="/contacts">
             Contacts
           </NavLink>
         )}

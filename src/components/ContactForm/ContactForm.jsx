@@ -6,6 +6,8 @@ import CSS from './ContactForm.module.css';
 import { useDispatch } from 'react-redux';
 import { addContact } from '../../redux/operations';
 import InputMask from 'react-input-mask';
+import { SearchBar } from '../SearchBar/SearchBar';
+import { ContactList } from '../ContactList/ContactList';
 
 export function ContactForm() {
   document.title = 'Contacts';
@@ -71,6 +73,8 @@ export function ContactForm() {
           </button>
         </Form>
       </Formik>
+      <SearchBar />
+      <ContactList />
     </>
   );
 }

@@ -24,7 +24,7 @@ export const App = () => {
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
-      <Route index element={<Home/>} />
+        <Route index element={<Home />} />
         <Route
           path="/register"
           element={
@@ -37,19 +37,13 @@ export const App = () => {
         <Route
           path="/login"
           element={
-            <RestrictedRout
-              redirectTo="/contacts"
-              component={<LoginForm />}
-            />
+            <RestrictedRout redirectTo="/contacts" component={<LoginForm />} />
           }
         />
         <Route
           path="/contacts"
           element={
-            <PrivateRoute
-              redirectTo="/login"
-              component={<ContactForm/>}
-            />
+            <PrivateRoute redirectTo="/login" component={<ContactForm />} />
           }
         />
       </Route>
