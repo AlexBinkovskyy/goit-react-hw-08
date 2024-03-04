@@ -2,10 +2,11 @@ import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { useId } from 'react';
-import { loginUser } from '../../redux/operations';
+import { logInUser } from '../../redux/operations';
 import css from './LoginForm.module.css';
 
 export const LoginForm = () => {
+  document.title = 'Log-in';
   const dispatch = useDispatch();
 
   const initialValues = {
@@ -27,7 +28,7 @@ export const LoginForm = () => {
 
   const handleSubmit = ({ email, password }, actions) => {
     actions.resetForm();
-    dispatch(loginUser({ email: email, password: password }));
+    dispatch(logInUser({ email: email, password: password }));
   };
 
   return (

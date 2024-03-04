@@ -1,11 +1,11 @@
 import { Outlet } from 'react-router-dom';
-import { NavBar } from '../NavBar/NavBar';
+import { AppBar } from '../Bars/AppBar/AppBar';
 
 export const Layout = () => {
   return (
-    <header className='wrapper'>
-      <NavBar />
+    <>
+      <AppBar />
       <Outlet />
-    </header>
+    </>
   );
 };

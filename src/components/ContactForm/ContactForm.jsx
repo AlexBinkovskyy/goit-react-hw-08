@@ -8,6 +8,7 @@ import { addContact } from '../../redux/operations';
 import InputMask from 'react-input-mask';
 
 export function ContactForm() {
+  document.title = 'Contacts';
   const initialValues = {
     name: '',
     number: '',

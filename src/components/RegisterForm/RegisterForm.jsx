@@ -8,6 +8,8 @@ import css from './RegisterForm.module.css';
 export const RegisterForm = () => {
   const dispatch = useDispatch();
 
+  document.title = 'Register';
+
   const initialValues = {
     name: '',
     email: '',
@@ -33,9 +35,7 @@ export const RegisterForm = () => {
 
   const handleSubmit = ({ name, email, password }, actions) => {
     actions.resetForm();
-    dispatch(
-      registerNewUser({ 'name': name, 'email': email, 'password': password })
-    );
+    dispatch(registerNewUser({ name: name, email: email, password: password }));
   };
 
   return (
