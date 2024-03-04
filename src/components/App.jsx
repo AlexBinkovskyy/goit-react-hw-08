@@ -20,7 +20,7 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <b>Restoring previous session, please wait...</b>
+    <b className='wrapper'>Restoring previous session, please wait...</b>
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
