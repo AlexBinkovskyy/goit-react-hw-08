@@ -18,6 +18,7 @@ export const selectFilteredContacts = createSelector(
     const params = {
       keys: ['name', 'number'],
       shouldSort: true,
+      threshold: 0.2,
     };
     const fuse = new Fuse(storedContacts, params);
     const contacts = fuse.search(filterValue).map(contact => contact.item);
