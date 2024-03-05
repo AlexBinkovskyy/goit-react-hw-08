@@ -4,17 +4,14 @@ import { contactFilter } from '../../redux/filterSlice';
 
 export function SearchBar() {
   const dispatch = useDispatch();
+  const handleInput = event => {
+    dispatch(contactFilter(event.target.value.toLowerCase().trim()));
+  };
 
   return (
     <div>
-      <p>Find contacts by name</p>
-      <input
-        className={CSS.searchInput}
-        type="text"
-        onChange={event =>
-          dispatch(contactFilter(event.target.value.toLowerCase()))
-        }
-      />
+      <p>Find contacts by name or phone number...</p>
+      <input className={CSS.searchInput} type="text" onChange={handleInput} />
     </div>
   );
 }
