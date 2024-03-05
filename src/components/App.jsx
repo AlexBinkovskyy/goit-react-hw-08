@@ -14,8 +14,6 @@ import { ContactModal } from './Contact/ContactModal/ContactModal';
 import { ContactModalForm } from './Contact/ContactModalForm/ContactModalForm';
 import { Page404 } from './Pages/Page404/Page404';
 
-const
-
 export const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth;
