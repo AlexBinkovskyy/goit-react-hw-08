@@ -4,7 +4,7 @@ import { Layout } from './Layout/Layout';
 import { RegisterForm } from './RegisterForm/RegisterForm';
 import { LoginForm } from './LoginForm/LoginForm';
 import { fetchContacts, refreshUser } from '../redux/operations';
-import { useEffect } from 'react';
+import { lazy, useEffect } from 'react';
 import { useAuth } from './hooks/useAuth';
 import { RestrictedRout } from './Routs/RestrictedRoute';
 import Home from './Pages/Home';
@@ -12,6 +12,9 @@ import { PrivateRoute } from './Routs/PrivateRout';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactModal } from './Contact/ContactModal/ContactModal';
 import { ContactModalForm } from './Contact/ContactModalForm/ContactModalForm';
+import { Page404 } from './Pages/Page404/Page404';
+
+const
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -19,9 +22,8 @@ export const App = () => {
 
   useEffect(() => {
     dispatch(refreshUser());
-    dispatch(fetchContacts())
   }, [dispatch]);
-
+  
   return isRefreshing ? (
     <b className='wrapper'>Restoring previous session, please wait...</b>
   ) : (<>
@@ -50,6 +52,7 @@ export const App = () => {
           }
         />
       </Route>
+      <Route path="*" element={<Page404/>} />
     </Routes>
     <ContactModal >
     <ContactModalForm />
