@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addContact, fetchContacts, removeContact } from './operations';
+import {
+  addContact,
+  editContact,
+  fetchContacts,
+  removeContact,
+} from './operations';
 
 const contactSlice = createSlice({
   name: 'contacts',
@@ -8,6 +13,16 @@ const contactSlice = createSlice({
     loading: false,
     error: false,
     errorMsg: null,
+    modalIsOpen: false,
+    contactForModal: { id: null, name: null, number: null },
+  },
+  reducers: {
+    toggleModal: (state, { payload }) => {
+      state.modalIsOpen = payload;
+    },
+    setContactForModal: (state, { payload }) => {
+      state.contactForModal = payload;
+    },
   },
   extraReducers: builder =>
     builder
@@ -37,6 +52,16 @@ const contactSlice = createSlice({
         state.error = true;
         state.errorMsg = payload;
       })
+      .addCase(editContact.fulfilled, (state, {payload}) => {
+        state.error = false;
+        const editedContactIndex = state.items.findIndex(({id}) => id===payload.id);
+        state.items.splice(editedContactIndex, 1, payload)
+        state.contactForModal = { id: null, name: null, number: null };
+      })
+      .addCase(editContact.rejected, state => {
+        state.error = true;
+        state.contactForModal = { id: null, name: null, number: null };
+      })
       .addCase(addContact.fulfilled, (state, { payload }) => {
         state.error = false;
         state.items.unshift(payload);
@@ -47,4 +72,5 @@ const contactSlice = createSlice({
       }),
 });
 
+export const { toggleModal, setContactForModal } = contactSlice.actions;
 export const contactReducer = contactSlice.reducer;

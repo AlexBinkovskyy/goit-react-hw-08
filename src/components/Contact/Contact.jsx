@@ -1,11 +1,17 @@
 import { FaUserTie } from 'react-icons/fa';
 import { FaPhoneAlt } from 'react-icons/fa';
 import CSS from './Contact.module.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { removeContact } from '../../redux/operations';
+import { LiaUserEditSolid } from 'react-icons/lia';
+import { setContactForModal, toggleModal } from '../../redux/contactSlice';
 
-export function Contact({ name, phone, id }) {
+
+export function Contact({ name, number, id }) {
   const dispatch = useDispatch();
+  
+
+  const setModalActive = value => dispatch(toggleModal(value));
 
   const handleDelete = id => {
     dispatch(removeContact(id));
@@ -19,7 +25,7 @@ export function Contact({ name, phone, id }) {
       </div>
       <div className={CSS.userPhone}>
         <FaPhoneAlt className={CSS.icon} size="22px" />
-        <p className={CSS.title}>{phone}</p>
+        <p className={CSS.title}>{number}</p>
       </div>
       <button
         type="button"
@@ -27,6 +33,14 @@ export function Contact({ name, phone, id }) {
         onClick={() => handleDelete(id)}
       >
         Delete contact
+      </button>
+      <button
+        type="button"
+        className={CSS.buttonEdit}
+        onClick={() => {dispatch(setContactForModal({id: id, name: name, number: number})); setModalActive(true)}}
+        title="Edit contact"
+      >
+        <LiaUserEditSolid />
       </button>
     </li>
   );

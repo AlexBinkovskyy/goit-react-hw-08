@@ -32,3 +32,10 @@
   top: 76%;
   transform: translateY(-50%);
 }
+
+.buttonEdit{
+  position: absolute;
+  right: 10px;
+  top: 30%;
+  transform: translateY(-50%);
+}

@@ -1,23 +1,26 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { useId } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
-import css from './ContactForm.module.css';
-import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/operations';
+import css from './ContactModalForm.module.css';
 import InputMask from 'react-input-mask';
-import { SearchBar } from '../SearchBar/SearchBar';
-import { ContactList } from '../ContactList/ContactList';
+import { editContact, fetchContacts } from '../../../redux/operations';
+import { selectContactForModal } from '../../../redux/selectors';
+import { toggleModal } from '../../../redux/contactSlice';
 
-export function ContactForm() {
-  document.title = 'Contacts';
+export const ContactModalForm = () => {
+  document.title = 'Edit contact';
+  const dispatch = useDispatch();
+  const selectedContact = useSelector(selectContactForModal)
+
+
   const initialValues = {
-    name: '',
-    number: '',
+    name: `${selectedContact.name}`,
+    number: `${selectedContact.number}`,
   };
 
   const nameID = useId();
   const numberID = useId();
-  const dispatch = useDispatch();
 
   const userSchema = Yup.object().shape({
     name: Yup.string()
@@ -27,22 +30,22 @@ export function ContactForm() {
     number: Yup.string().required('Required number'),
   });
 
-  const handleSubmit = (values, actions) => {
+  const handleSubmit = ({ name, number }, actions) => {
     actions.resetForm();
-    dispatch(
-      addContact({ name: values.name, number: values.number })
-    );
+    dispatch(editContact({ id: selectedContact.id, name: name, number: number }));
+    dispatch(toggleModal(false))
+    dispatch(fetchContacts());
   };
 
   return (
     <>
       <div className={css.wrapper}>
-        <h1 className="header">Phonebook</h1>
         <Formik
           initialValues={initialValues}
           onSubmit={handleSubmit}
           validationSchema={userSchema}
           validateOnBlur={false}
+          enableReinitialize={true}
         >
           <Form className={css.form}>
             <label htmlFor={nameID}>Name</label>
@@ -69,13 +72,11 @@ export function ContactForm() {
               component="span"
             />
             <button className={css.btn} type="submit">
-              Add contact
+              Save contact
             </button>
           </Form>
         </Formik>
-        <SearchBar />
       </div>
-      <ContactList />
     </>
   );
-}
+};
