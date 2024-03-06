@@ -6,8 +6,6 @@ import { lazy, useEffect } from 'react';
 import { useAuth } from './hooks/useAuth';
 import { RestrictedRout } from './Routs/RestrictedRoute';
 import { PrivateRoute } from './Routs/PrivateRout';
-import { ContactModal } from './Contact/ContactModal/ContactModal';
-import { ContactModalForm } from './Contact/ContactModalForm/ContactModalForm';
 import { Page404 } from './Pages/Page404/Page404';
 import { Toaster } from 'react-hot-toast';
 
@@ -58,9 +56,6 @@ export const App = () => {
         </Route>
         <Route path="*" element={<Page404 />} />
       </Routes>
-      <ContactModal>
-        <ContactModalForm />
-      </ContactModal>{' '}
       <Toaster
         position="top-right"
         reverseOrder={false}

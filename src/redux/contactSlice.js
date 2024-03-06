@@ -15,7 +15,6 @@ const contactSlice = createSlice({
     loading: false,
     error: false,
     errorMsg: null,
-    modalIsOpen: false,
     contactForModal: { id: null, name: null, number: null },
   },
   reducers: {
@@ -48,8 +47,8 @@ const contactSlice = createSlice({
           state.error = true;
           state.errorMsg = 'There are no contacts to show yet';
         }
-        toast.success('Contact successfully removed');
         state.items = state.items.filter(item => item.id !== payload.id);
+        toast.success('Contact successfully removed');
       })
       .addCase(removeContact.rejected, (state, { payload }) => {
         state.error = true;

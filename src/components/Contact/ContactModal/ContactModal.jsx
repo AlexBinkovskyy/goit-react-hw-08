@@ -1,16 +1,15 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import css from './ContactModal.module.css';
-import { selectModalIsOpen } from '../../../redux/selectors';
-import { setContactForModal, toggleModal } from '../../../redux/contactSlice';
+import { setContactForModal } from '../../../redux/contactSlice';
 
-export const ContactModal = ({ children }) => {
+export const ContactModal = ({ component: ModalChild, active, setActive }) => {
   const dispatch = useDispatch();
-  const active = useSelector(selectModalIsOpen);
+
   return (
     <div
       className={active ? `${css.modal} ${css.active}` : `${css.modal}`}
       onClick={() => {
-        dispatch(toggleModal(false));
+        setActive(false);
         dispatch(setContactForModal({ id: null, name: null, number: null }));
       }}
     >
@@ -20,12 +19,8 @@ export const ContactModal = ({ children }) => {
         }
         onClick={event => event.stopPropagation()}
       >
-        {' '}
-        <h3 className={css.header}>Edit contact</h3>
-        <p className={css.parag}>
-          provide new informaton and click "Save contact" button
-        </p>
-        {children}
+       
+        {<ModalChild setActive={setActive} />}
       </div>
     </div>
   );

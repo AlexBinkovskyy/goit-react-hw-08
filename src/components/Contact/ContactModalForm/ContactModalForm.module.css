@@ -14,3 +14,13 @@
   width: 125px;
   margin: 0 auto;
 }
+.header {
+  display: block;
+  font-size: 24px;
+  font-weight: 500;
+}
+.parag {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 20px;
+}

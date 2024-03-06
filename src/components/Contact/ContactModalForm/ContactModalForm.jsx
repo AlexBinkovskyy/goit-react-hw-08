@@ -6,9 +6,8 @@ import css from './ContactModalForm.module.css';
 import InputMask from 'react-input-mask';
 import { editContact, fetchContacts } from '../../../redux/operations';
 import { selectContactForModal } from '../../../redux/selectors';
-import { toggleModal } from '../../../redux/contactSlice';
 
-export const ContactModalForm = () => {
+export const ContactModalForm = ({ setActive }) => {
   document.title = 'Edit contact';
   const dispatch = useDispatch();
   const selectedContact = useSelector(selectContactForModal);
@@ -34,12 +33,16 @@ export const ContactModalForm = () => {
     dispatch(
       editContact({ id: selectedContact.id, name: name, number: number })
     );
-    dispatch(toggleModal(false));
+    setActive(false);
     dispatch(fetchContacts());
   };
 
   return (
     <>
+      <h3 className={css.header}>Edit contact</h3>
+      <p className={css.parag}>
+        provide new informaton and click "Save contact" button
+      </p>
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}

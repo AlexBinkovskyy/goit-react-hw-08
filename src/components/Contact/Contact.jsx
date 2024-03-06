@@ -2,18 +2,30 @@ import { FaUserTie } from 'react-icons/fa';
 import { FaPhoneAlt } from 'react-icons/fa';
 import CSS from './Contact.module.css';
 import { useDispatch } from 'react-redux';
-import { removeContact } from '../../redux/operations';
 import { LiaUserEditSolid } from 'react-icons/lia';
-import { setContactForModal, toggleModal } from '../../redux/contactSlice';
+import { setContactForModal } from '../../redux/contactSlice';
+import { ContactModal } from './ContactModal/ContactModal';
+import { ContactModalForm } from './ContactModalForm/ContactModalForm';
+import { useState } from 'react';
+import  {ContactDeleteConfirm}  from './ContactDeleteConfirm/ContactDeleteConfirm';
+
 
 export function Contact({ name, number, id }) {
   const dispatch = useDispatch();
+  const [active, setActive] = useState(false);
+  const [action, setAction] = useState(null);
 
-  const setModalActive = value => dispatch(toggleModal(value));
-
-  const handleDelete = id => {
-    dispatch(removeContact(id));
+  const handleDelete = () => {
+    setActive(true);
+    setAction('delete');
+    dispatch(setContactForModal({ id: id, name: name, number: number }));
   };
+
+  const handleEdit = () => {
+    dispatch(setContactForModal({ id: id, name: name, number: number }));
+    setActive(true);
+    setAction('edit');
+  }
 
   return (
     <li className={CSS.listItem}>
@@ -35,14 +47,16 @@ export function Contact({ name, number, id }) {
       <button
         type="button"
         className={CSS.buttonEdit}
-        onClick={() => {
-          dispatch(setContactForModal({ id: id, name: name, number: number }));
-          setModalActive(true);
-        }}
+        onClick={handleEdit}
         title="Edit contact"
       >
         <LiaUserEditSolid />
       </button>
+      <ContactModal
+        component={action === 'edit' ? ContactModalForm : ContactDeleteConfirm}
+        active={active}
+        setActive={setActive}
+      ></ContactModal>
     </li>
   );
 }
