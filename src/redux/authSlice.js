@@ -53,7 +53,7 @@ const authorizationSlice = createSlice({
       })
       .addCase(refreshUser.rejected, state => {
         state.isRefreshing = false;
-        toast.error('Please, log-in')
+        toast.error('Security authorization token is out-of-date, please re-login.')
       });
   },
 });

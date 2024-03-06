@@ -2,6 +2,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  fill: rgb(20, 58, 163);
+}
+
+.editIcon{
+  fill: rgb(25, 25, 128);
 }
 
 .listItem {
@@ -31,6 +36,9 @@
   right: 10px;
   top: 76%;
   transform: translateY(-50%);
+  background-color: rgba(178, 183, 226, 0.295);;
+  border-radius: 3px;
+  border: 0.2px solid black;
 }
 
 .buttonEdit {

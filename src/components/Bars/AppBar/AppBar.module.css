@@ -1,7 +1,9 @@
 .header {
-  margin-bottom: 35px;
+  margin-top: 10px;
+  margin-bottom: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 15px;
+  align-items: center;
+  justify-content: baseline;
 }

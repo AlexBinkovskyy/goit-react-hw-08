@@ -30,11 +30,11 @@ export function Contact({ name, number, id }) {
   return (
     <li className={CSS.listItem}>
       <div className={CSS.userName}>
-        <FaUserTie className={CSS.icon} size="25px" />
+        <FaUserTie className={CSS.icon} size="30px" />
         <h2 className={CSS.title}>{name}</h2>
       </div>
       <div className={CSS.userPhone}>
-        <FaPhoneAlt className={CSS.icon} size="22px" />
+        <FaPhoneAlt className={CSS.icon} size="25px" />
         <p className={CSS.title}>{number}</p>
       </div>
       <button
@@ -50,7 +50,7 @@ export function Contact({ name, number, id }) {
         onClick={handleEdit}
         title="Edit contact"
       >
-        <LiaUserEditSolid />
+        <LiaUserEditSolid className={CSS.editIcon}/>
       </button>
       <ContactModal
         component={action === 'edit' ? ContactModalForm : ContactDeleteConfirm}

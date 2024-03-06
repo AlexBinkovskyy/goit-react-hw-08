@@ -1,7 +1,13 @@
 .wrapper {
-  display: inline-block;
+display: flex;
+align-items: center;
 }
 
 .username {
+  margin: 0;
   margin-right: 15px;
+}
+
+button {
+
 }
