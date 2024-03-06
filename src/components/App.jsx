@@ -11,7 +11,7 @@ import { ContactModalForm } from './Contact/ContactModalForm/ContactModalForm';
 import { Page404 } from './Pages/Page404/Page404';
 import { Toaster } from 'react-hot-toast';
 
-const Home = lazy(() => import('./Pages/Home'));
+const Home = lazy(() => import('./Pages/Home/Home'));
 const RegisterForm = lazy(() => import('./RegisterForm/RegisterForm'));
 const LoginForm = lazy(() => import('./LoginForm/LoginForm'));
 const ContactForm = lazy(() => import('./ContactForm/ContactForm'));
@@ -66,10 +66,6 @@ export const App = () => {
         reverseOrder={false}
         toastOptions={{
           duration: 3500,
-          // style: {
-          //   background: '#363636',
-          //   color: '#fff',
-          // },
         }}
       />
     </>

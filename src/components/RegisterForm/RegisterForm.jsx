@@ -92,4 +92,4 @@ export default function RegisterForm() {
       </Formik>
     </div>
   );
-};
+}

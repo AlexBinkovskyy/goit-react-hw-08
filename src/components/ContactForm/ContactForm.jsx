@@ -29,9 +29,7 @@ export default function ContactForm() {
 
   const handleSubmit = (values, actions) => {
     actions.resetForm();
-    dispatch(
-      addContact({ name: values.name, number: values.number })
-    );
+    dispatch(addContact({ name: values.name, number: values.number }));
   };
 
   return (

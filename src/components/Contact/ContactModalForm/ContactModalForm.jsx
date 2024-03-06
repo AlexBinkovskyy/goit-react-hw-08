@@ -48,7 +48,9 @@ export const ContactModalForm = () => {
         enableReinitialize={true}
       >
         <Form className={css.form}>
-          <label htmlFor={nameID} className={css.label}>Name</label>
+          <label htmlFor={nameID} className={css.label}>
+            Name
+          </label>
           <Field className={css.input} type="text" name="name" id={nameID} />
           <ErrorMessage
             className={css.errorName}
@@ -56,9 +58,10 @@ export const ContactModalForm = () => {
             component="span"
           />
           <label htmlFor={numberID}>Number</label>
-          <Field type="text" className={css.input} name="number" >
+          <Field type="text" className={css.input} name="number">
             {({ field }) => (
-              <InputMask id={numberID}
+              <InputMask
+                id={numberID}
                 {...field}
                 mask="999-999-9999"
                 maskChar=""

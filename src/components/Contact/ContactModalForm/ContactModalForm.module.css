@@ -1,18 +1,16 @@
-.form{
-    display: flex;
-    flex-direction: column;
-}
-.label{
-
-}
-.input{
-    margin-bottom: 15px;
-}
-.inputSecond{
-    margin-bottom: 40px;
+.form {
+  display: flex;
+  flex-direction: column;
 }
 
-.btn{
-    width: 125px;
-    margin: 0 auto;
+.input {
+  margin-bottom: 15px;
+}
+.inputSecond {
+  margin-bottom: 40px;
+}
+
+.btn {
+  width: 125px;
+  margin: 0 auto;
 }

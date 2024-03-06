@@ -48,19 +48,21 @@ const contactSlice = createSlice({
           state.error = true;
           state.errorMsg = 'There are no contacts to show yet';
         }
-        toast.success('Contact successfully removed')
+        toast.success('Contact successfully removed');
         state.items = state.items.filter(item => item.id !== payload.id);
       })
       .addCase(removeContact.rejected, (state, { payload }) => {
         state.error = true;
         state.errorMsg = payload;
       })
-      .addCase(editContact.fulfilled, (state, {payload}) => {
+      .addCase(editContact.fulfilled, (state, { payload }) => {
         state.error = false;
-        const editedContactIndex = state.items.findIndex(({id}) => id===payload.id);
-        state.items.splice(editedContactIndex, 1, payload)
+        const editedContactIndex = state.items.findIndex(
+          ({ id }) => id === payload.id
+        );
+        state.items.splice(editedContactIndex, 1, payload);
         state.contactForModal = { id: null, name: null, number: null };
-        toast.success('Contact successfully edited')
+        toast.success('Contact successfully edited');
       })
       .addCase(editContact.rejected, state => {
         state.error = true;
@@ -69,7 +71,7 @@ const contactSlice = createSlice({
       .addCase(addContact.fulfilled, (state, { payload }) => {
         state.error = false;
         state.items.unshift(payload);
-        toast.success('Contact successfully added')
+        toast.success('Contact successfully added');
       })
       .addCase(addContact.rejected, (state, { payload }) => {
         state.error = true;

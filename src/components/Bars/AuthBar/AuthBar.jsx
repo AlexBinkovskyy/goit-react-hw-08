@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import css from './AuthBar.module.css'
+import css from './AuthBar.module.css';
 
 export const AuthBar = () => {
   return (
