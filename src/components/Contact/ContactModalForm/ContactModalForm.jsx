@@ -8,7 +8,6 @@ import { editContact, fetchContacts } from '../../../redux/operations';
 import { selectContactForModal } from '../../../redux/selectors';
 
 export const ContactModalForm = ({ setActive }) => {
-  document.title = 'Edit contact';
   const dispatch = useDispatch();
   const selectedContact = useSelector(selectContactForModal);
 

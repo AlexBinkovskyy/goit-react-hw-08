@@ -39,7 +39,7 @@ export const ContactDeleteConfirm = ({ setActive }) => {
           Delete
         </button>
         <button type="button" onClick={handleCancel} className={css.button}>
-          <MdOutlineCancel color="red" className={css.icon}/>
+          <MdOutlineCancel color="red" className={css.icon} />
           Cancel
         </button>
       </div>

@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import toast from 'react-hot-toast';
 
 import {
   logInUser,
@@ -25,13 +24,11 @@ const authorizationSlice = createSlice({
         state.user = payload.user;
         state.token = payload.token;
         state.isLoggedIn = true;
-        toast.success('You are successfully registered. Wellcome!!!');
       })
       .addCase(logInUser.fulfilled, (state, { payload }) => {
         state.user = payload.user;
         state.token = payload.token;
         state.isLoggedIn = true;
-        toast.success('You are successfully logged in');
       })
       .addCase(logOutUser.fulfilled, state => {
         state.user = {
@@ -40,7 +37,6 @@ const authorizationSlice = createSlice({
         };
         state.token = null;
         state.isLoggedIn = false;
-        toast.success('You are successfully logged out');
       })
       .addCase(refreshUser.pending, state => {
         state.isRefreshing = true;
@@ -49,11 +45,9 @@ const authorizationSlice = createSlice({
         state.user = payload;
         state.isLoggedIn = true;
         state.isRefreshing = false;
-        toast.success('session successfully restored');
       })
       .addCase(refreshUser.rejected, state => {
         state.isRefreshing = false;
-        toast.error('Security authorization token is out-of-date, please re-login.')
       });
   },
 });

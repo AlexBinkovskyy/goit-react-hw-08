@@ -4,9 +4,9 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { useId } from 'react';
 import { logInUser } from '../../redux/operations';
 import css from './LoginForm.module.css';
+import DocumentTitle from '../DocumentTitle/DocumentTitle';
 
 export default function LoginForm() {
-  document.title = 'Log-in';
   const dispatch = useDispatch();
 
   const initialValues = {
@@ -33,6 +33,7 @@ export default function LoginForm() {
 
   return (
     <div>
+      <DocumentTitle>Login</DocumentTitle>
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}

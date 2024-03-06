@@ -4,11 +4,10 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { useId } from 'react';
 import { registerNewUser } from '../../redux/operations';
 import css from './RegisterForm.module.css';
+import DocumentTitle from '../DocumentTitle/DocumentTitle';
 
 export default function RegisterForm() {
   const dispatch = useDispatch();
-
-  document.title = 'Register';
 
   const initialValues = {
     name: '',
@@ -40,6 +39,7 @@ export default function RegisterForm() {
 
   return (
     <div>
+      <DocumentTitle>Register</DocumentTitle>
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
