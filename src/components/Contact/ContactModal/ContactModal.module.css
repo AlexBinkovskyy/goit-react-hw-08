@@ -16,15 +16,14 @@
 
 .modal.active {
   opacity: 1;
-  pointer-events: all;
+  pointer-events: auto;
 }
-
 .modalContent {
   padding: 50px;
   border-radius: 12px;
   background-color: rgba(255, 255, 255, 0.95);
   width: 600px;
-  height: auto;
+  /* height: auto; */
   transform: scale(0.5);
   transition: 0.2s all;
 }

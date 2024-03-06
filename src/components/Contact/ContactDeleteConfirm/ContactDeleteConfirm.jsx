@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { removeContact } from '../../../redux/operations';
 import { selectContactForModal } from '../../../redux/selectors';
 import { setContactForModal } from '../../../redux/contactSlice';
+import css from './ContactDeleteConfirm.module.css';
 
 export const ContactDeleteConfirm = ({ setActive }) => {
   const dispatch = useDispatch();
@@ -22,22 +23,23 @@ export const ContactDeleteConfirm = ({ setActive }) => {
 
   return (
     <div>
-      <h3>Deleting contact</h3>
-      <p>
-        Are you shure to delete this contact: <br />
-        <span>{storedContact.name}</span>
-        <br />
-        <span>{storedContact.number}</span>
-      </p>
+      <h3 className={css.header}>Deleting contact</h3>
+      <p className={css.parag}>Are you shure to delete this contact: </p>
       <br />
-      <p>Operation can't be undone.</p>
+      <div className={css.spanWrap}>
+        <span className={css.span}>{storedContact.name}</span>
+        <br />
+        <span className={css.span}>{storedContact.number}</span>
+      </div>{' '}
+      <br />
+      <p className={css.paragWarn}>Operation can not be undone!!!</p>
       <div>
-        <button type="button" onClick={handleDelete}>
-          <FaCheck color="green" />
+        <button type="button" onClick={handleDelete} className={css.button}>
+          <FaCheck color="green" className={css.icon} />
           Delete
         </button>
-        <button type="button" onClick={handleCancel}>
-          <MdOutlineCancel color="red" />
+        <button type="button" onClick={handleCancel} className={css.button}>
+          <MdOutlineCancel color="red" className={css.icon}/>
           Cancel
         </button>
       </div>

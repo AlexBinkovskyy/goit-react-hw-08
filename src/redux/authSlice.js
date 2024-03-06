@@ -53,6 +53,7 @@ const authorizationSlice = createSlice({
       })
       .addCase(refreshUser.rejected, state => {
         state.isRefreshing = false;
+        toast.error('Please, log-in')
       });
   },
 });
