@@ -23,12 +23,23 @@
   padding: 50px;
   border-radius: 12px;
   background-color: rgba(255, 255, 255, 0.95);
-  width: 800px;
-  height: 400px;
+  width: 600px;
+  height: auto;
   transform: scale(0.5);
   transition: 0.2s all;
 }
 
 .modalContent.active {
   transform: scale(1);
+}
+
+.header {
+  display: block;
+  font-size: 24px;
+  font-weight: 500;
+}
+.parag {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 20px;
 }

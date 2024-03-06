@@ -20,6 +20,11 @@ export const ContactModal = ({ children }) => {
         }
         onClick={event => event.stopPropagation()}
       >
+        {' '}
+        <h3 className={css.header}>Edit contact</h3>
+        <p className={css.parag}>
+          provide new informaton and click "Save contact" button
+        </p>
         {children}
       </div>
     </div>

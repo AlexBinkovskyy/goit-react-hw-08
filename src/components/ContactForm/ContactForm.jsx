@@ -8,7 +8,7 @@ import InputMask from 'react-input-mask';
 import { SearchBar } from '../SearchBar/SearchBar';
 import { ContactList } from '../ContactList/ContactList';
 
-export function ContactForm() {
+export default function ContactForm() {
   document.title = 'Contacts';
   const initialValues = {
     name: '',

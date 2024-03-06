@@ -5,7 +5,7 @@ import { useId } from 'react';
 import { registerNewUser } from '../../redux/operations';
 import css from './RegisterForm.module.css';
 
-export const RegisterForm = () => {
+export default function RegisterForm() {
   const dispatch = useDispatch();
 
   document.title = 'Register';

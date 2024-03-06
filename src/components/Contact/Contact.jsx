@@ -5,6 +5,7 @@ import { useDispatch} from 'react-redux';
 import { removeContact } from '../../redux/operations';
 import { LiaUserEditSolid } from 'react-icons/lia';
 import { setContactForModal, toggleModal } from '../../redux/contactSlice';
+import { ContactModal } from './ContactModal/ContactModal';
 
 
 export function Contact({ name, number, id }) {

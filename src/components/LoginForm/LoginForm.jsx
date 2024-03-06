@@ -5,7 +5,7 @@ import { useId } from 'react';
 import { logInUser } from '../../redux/operations';
 import css from './LoginForm.module.css';
 
-export const LoginForm = () => {
+export default function LoginForm() {
   document.title = 'Log-in';
   const dispatch = useDispatch();
 

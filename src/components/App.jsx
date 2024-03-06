@@ -1,18 +1,19 @@
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
-import { RegisterForm } from './RegisterForm/RegisterForm';
-import { LoginForm } from './LoginForm/LoginForm';
-import { fetchContacts, refreshUser } from '../redux/operations';
+import { refreshUser } from '../redux/operations';
 import { lazy, useEffect } from 'react';
 import { useAuth } from './hooks/useAuth';
 import { RestrictedRout } from './Routs/RestrictedRoute';
-import Home from './Pages/Home';
 import { PrivateRoute } from './Routs/PrivateRout';
-import { ContactForm } from './ContactForm/ContactForm';
 import { ContactModal } from './Contact/ContactModal/ContactModal';
 import { ContactModalForm } from './Contact/ContactModalForm/ContactModalForm';
 import { Page404 } from './Pages/Page404/Page404';
+
+const Home = lazy(()=> import('./Pages/Home'))
+const RegisterForm = lazy(()=> import('./RegisterForm/RegisterForm'))
+const LoginForm = lazy(()=> import('./LoginForm/LoginForm'))
+const ContactForm = lazy(()=> import('./ContactForm/ContactForm'))
 
 export const App = () => {
   const dispatch = useDispatch();
