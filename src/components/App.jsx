@@ -1,7 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
-import { refreshUser } from '../redux/operations';
 import { lazy, useEffect } from 'react';
 import { useAuth } from './hooks/useAuth';
 import { RestrictedRout } from './Routs/RestrictedRoute';

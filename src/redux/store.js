@@ -7,12 +7,12 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import { contactReducer } from './contactSlice';
-import { filterContactReducer } from './filterSlice';
+import { contactReducer } from './contacts/contactSlice';
+import { filterContactReducer } from './contacts/filterSlice';
 import persistStore from 'redux-persist/es/persistStore';
 import storage from 'redux-persist/lib/storage';
 import persistReducer from 'redux-persist/es/persistReducer';
-import { authReducer } from './authSlice';
+import { authReducer } from './auth/authSlice';
 
 const authPersistConfig = {
   key: 'auth',

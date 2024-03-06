@@ -5,7 +5,7 @@ import {
   logOutUser,
   refreshUser,
   registerNewUser,
-} from './operations';
+} from '../operations';
 
 const authorizationSlice = createSlice({
   name: 'auth',

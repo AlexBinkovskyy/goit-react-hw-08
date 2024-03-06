@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useAuth } from '../../hooks/useAuth';
-import { logOutUser } from '../../../redux/operations';
+import { logOutUser } from '../../../redux/contacts/operations';
 import css from './UserBar.module.css';
 
 export const UserBar = () => {
