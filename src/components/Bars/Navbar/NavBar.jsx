@@ -3,9 +3,8 @@ import { useAuth } from '../../hooks/useAuth';
 import css from './NavBar.module.css';
 import clsx from 'clsx';
 
-
 const buildLinkClass = ({ isActive }) => {
-  return clsx(css.link, isActive && css.active );
+  return clsx(css.link, isActive && css.active);
 };
 
 export const NavBar = () => {
