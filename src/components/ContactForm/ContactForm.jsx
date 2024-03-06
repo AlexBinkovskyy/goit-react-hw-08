@@ -3,7 +3,7 @@ import { useId } from 'react';
 import * as Yup from 'yup';
 import css from './ContactForm.module.css';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/operations';
+import { addContact } from '../../redux/contacts/operations';
 import InputMask from 'react-input-mask';
 import { SearchBar } from '../SearchBar/SearchBar';
 import { ContactList } from '../ContactList/ContactList';

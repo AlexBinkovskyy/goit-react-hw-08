@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import CSS from './SearchBar.module.css';
-import { contactFilter } from '../../redux/filterSlice';
+import { contactFilter } from '../../redux/contacts/filterSlice';
 
 export function SearchBar() {
   const dispatch = useDispatch();

@@ -3,7 +3,7 @@ import { FaPhoneAlt } from 'react-icons/fa';
 import CSS from './Contact.module.css';
 import { useDispatch } from 'react-redux';
 import { LiaUserEditSolid } from 'react-icons/lia';
-import { setContactForModal } from '../../redux/contactSlice';
+import { setContactForModal } from '../../redux/contacts/contactSlice';
 import { ContactModal } from './ContactModal/ContactModal';
 import { ContactModalForm } from './ContactModalForm/ContactModalForm';
 import { useState } from 'react';

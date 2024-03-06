@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { useId } from 'react';
-import { logInUser } from '../../redux/operations';
+import { logInUser } from '../../redux/auth/operations';
 import css from './LoginForm.module.css';
 import DocumentTitle from '../DocumentTitle/DocumentTitle';
 

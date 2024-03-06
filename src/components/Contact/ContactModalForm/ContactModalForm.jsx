@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import css from './ContactModalForm.module.css';
 import InputMask from 'react-input-mask';
-import { editContact, fetchContacts } from '../../../redux/operations';
-import { selectContactForModal } from '../../../redux/selectors';
+import { editContact, fetchContacts } from '../../../redux/contacts/operations';
+import { selectContactForModal } from '../../../redux/contacts/selectors';
 
 export const ContactModalForm = ({ setActive }) => {
   const dispatch = useDispatch();

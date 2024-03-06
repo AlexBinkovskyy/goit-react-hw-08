@@ -2,9 +2,9 @@ import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { useId } from 'react';
-import { registerNewUser } from '../../redux/operations';
 import css from './RegisterForm.module.css';
 import DocumentTitle from '../DocumentTitle/DocumentTitle';
+import { registerNewUser } from '../../redux/auth/operations';
 
 export default function RegisterForm() {
   const dispatch = useDispatch();

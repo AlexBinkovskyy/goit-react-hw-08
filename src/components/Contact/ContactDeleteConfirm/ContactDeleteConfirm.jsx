@@ -1,10 +1,10 @@
 import { FaCheck } from 'react-icons/fa';
 import { MdOutlineCancel } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeContact } from '../../../redux/operations';
-import { selectContactForModal } from '../../../redux/selectors';
-import { setContactForModal } from '../../../redux/contactSlice';
 import css from './ContactDeleteConfirm.module.css';
+import { selectContactForModal } from '../../../redux/contacts/selectors';
+import { removeContact } from '../../../redux/contacts/operations';
+import { setContactForModal } from '../../../redux/contacts/contactSlice';
 
 export const ContactDeleteConfirm = ({ setActive }) => {
   const dispatch = useDispatch();

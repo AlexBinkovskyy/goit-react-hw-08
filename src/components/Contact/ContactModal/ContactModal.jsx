@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import css from './ContactModal.module.css';
-import { setContactForModal } from '../../../redux/contactSlice';
+import { setContactForModal } from '../../../redux/contacts/contactSlice';
 
 export const ContactModal = ({ component: ModalChild, active, setActive }) => {
   const dispatch = useDispatch();

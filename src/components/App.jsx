@@ -7,6 +7,7 @@ import { RestrictedRout } from './Routs/RestrictedRoute';
 import { PrivateRoute } from './Routs/PrivateRout';
 import { Page404 } from './Pages/Page404/Page404';
 import { Toaster } from 'react-hot-toast';
+import { refreshUser } from '../redux/auth/operations';
 
 const Home = lazy(() => import('./Pages/Home/Home'));
 const RegisterForm = lazy(() => import('./RegisterForm/RegisterForm'));
